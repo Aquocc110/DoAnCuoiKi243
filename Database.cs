@@ -9,7 +9,7 @@ namespace QuanLiSinhVien
 
     public class DatabaseHelper
     {
-        public static string chuoiKetNoi = "Data Source=DESKTOP-V5GILFN\\SQLEXPRESS;Initial Catalog=QuanLiSinhVienFinall_DoAnCuoiKi242;Integrated Security=True;TrustServerCertificate=True";
+        public static string chuoiKetNoi = "1Data Source=DESKTOP-V5GILFN\\SQLEXPRESS;Initial Catalog=QuanLiSinhVienFinall_DoAnCuoiKi242;Integrated Security=True;TrustServerCertificate=True";
         public SqlConnection TaoKetNoi()
         {
             return new SqlConnection(chuoiKetNoi);
