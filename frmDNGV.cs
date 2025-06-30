@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace DoAnCuoiKi242
 {
+    // cc duy
     public partial class frmDNGV : Form
     {
         public frmDNGV()
