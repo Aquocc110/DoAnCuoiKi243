@@ -58,6 +58,7 @@
             this.hoTenTextBox = new System.Windows.Forms.TextBox();
             this.giangVienTableAdapter = new DoAnCuoiKi242.QuanLiSinhVien1_DoAnCuoiKi242DataSetTableAdapters.GiangVienTableAdapter();
             this.tableAdapterManager = new DoAnCuoiKi242.QuanLiSinhVien1_DoAnCuoiKi242DataSetTableAdapters.TableAdapterManager();
+            this.mônHọcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             dienThoaiLabel = new System.Windows.Forms.Label();
             hoTenLabel = new System.Windows.Forms.Label();
             maGVLabel = new System.Windows.Forms.Label();
@@ -77,7 +78,7 @@
             dienThoaiLabel.Location = new System.Drawing.Point(388, 28);
             dienThoaiLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             dienThoaiLabel.Name = "dienThoaiLabel";
-            dienThoaiLabel.Size = new System.Drawing.Size(96, 23);
+            dienThoaiLabel.Size = new System.Drawing.Size(109, 28);
             dienThoaiLabel.TabIndex = 12;
             dienThoaiLabel.Text = "Điện Thoại:";
             // 
@@ -88,7 +89,7 @@
             hoTenLabel.Location = new System.Drawing.Point(82, 59);
             hoTenLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             hoTenLabel.Name = "hoTenLabel";
-            hoTenLabel.Size = new System.Drawing.Size(67, 23);
+            hoTenLabel.Size = new System.Drawing.Size(76, 28);
             hoTenLabel.TabIndex = 6;
             hoTenLabel.Text = "Họ Tên:";
             // 
@@ -99,7 +100,7 @@
             maGVLabel.Location = new System.Drawing.Point(82, 25);
             maGVLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             maGVLabel.Name = "maGVLabel";
-            maGVLabel.Size = new System.Drawing.Size(117, 23);
+            maGVLabel.Size = new System.Drawing.Size(133, 28);
             maGVLabel.TabIndex = 0;
             maGVLabel.Text = "Mã Giáo Viên:";
             // 
@@ -110,7 +111,7 @@
             emailLabel.Location = new System.Drawing.Point(391, 61);
             emailLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             emailLabel.Name = "emailLabel";
-            emailLabel.Size = new System.Drawing.Size(55, 23);
+            emailLabel.Size = new System.Drawing.Size(63, 28);
             emailLabel.TabIndex = 13;
             emailLabel.Text = "Email:";
             // 
@@ -118,6 +119,7 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.menuStrip1.Font = new System.Drawing.Font("Sitka Heading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.thôngTinCáNhânToolStripMenuItem,
@@ -126,7 +128,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(902, 29);
+            this.menuStrip1.Size = new System.Drawing.Size(902, 36);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -138,21 +140,21 @@
             this.thôngTinCáNhânToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.thôngTinCáNhânToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.thôngTinCáNhânToolStripMenuItem.Name = "thôngTinCáNhânToolStripMenuItem";
-            this.thôngTinCáNhânToolStripMenuItem.Size = new System.Drawing.Size(173, 27);
+            this.thôngTinCáNhânToolStripMenuItem.Size = new System.Drawing.Size(215, 34);
             this.thôngTinCáNhânToolStripMenuItem.Text = "Thông tin cá nhân ";
             this.thôngTinCáNhânToolStripMenuItem.Click += new System.EventHandler(this.thôngTinCáNhânToolStripMenuItem_Click);
             // 
             // trangChủToolStripMenuItem
             // 
             this.trangChủToolStripMenuItem.Name = "trangChủToolStripMenuItem";
-            this.trangChủToolStripMenuItem.Size = new System.Drawing.Size(252, 28);
+            this.trangChủToolStripMenuItem.Size = new System.Drawing.Size(313, 38);
             this.trangChủToolStripMenuItem.Text = "Trang chủ ";
             this.trangChủToolStripMenuItem.Click += new System.EventHandler(this.trangChủToolStripMenuItem_Click);
             // 
             // chỉnhSửaThôngTinToolStripMenuItem
             // 
             this.chỉnhSửaThôngTinToolStripMenuItem.Name = "chỉnhSửaThôngTinToolStripMenuItem";
-            this.chỉnhSửaThôngTinToolStripMenuItem.Size = new System.Drawing.Size(252, 28);
+            this.chỉnhSửaThôngTinToolStripMenuItem.Size = new System.Drawing.Size(313, 38);
             this.chỉnhSửaThôngTinToolStripMenuItem.Text = "Chỉnh sửa thông tin";
             this.chỉnhSửaThôngTinToolStripMenuItem.Click += new System.EventHandler(this.chỉnhSửaThôngTinToolStripMenuItem_Click);
             // 
@@ -162,39 +164,40 @@
             this.danhSáchSinhViênToolStripMenuItem,
             this.sửaĐiểmToolStripMenuItem,
             this.thắcMắcSinhViênToolStripMenuItem,
-            this.thôngBáoToolStripMenuItem});
+            this.thôngBáoToolStripMenuItem,
+            this.mônHọcToolStripMenuItem});
             this.quảnLíLớpHọcToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quảnLíLớpHọcToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.quảnLíLớpHọcToolStripMenuItem.Name = "quảnLíLớpHọcToolStripMenuItem";
-            this.quảnLíLớpHọcToolStripMenuItem.Size = new System.Drawing.Size(146, 27);
+            this.quảnLíLớpHọcToolStripMenuItem.Size = new System.Drawing.Size(180, 34);
             this.quảnLíLớpHọcToolStripMenuItem.Text = "Quản lí lớp học";
             this.quảnLíLớpHọcToolStripMenuItem.Click += new System.EventHandler(this.quảnLíLớpHọcToolStripMenuItem_Click);
             // 
             // danhSáchSinhViênToolStripMenuItem
             // 
             this.danhSáchSinhViênToolStripMenuItem.Name = "danhSáchSinhViênToolStripMenuItem";
-            this.danhSáchSinhViênToolStripMenuItem.Size = new System.Drawing.Size(250, 28);
+            this.danhSáchSinhViênToolStripMenuItem.Size = new System.Drawing.Size(311, 38);
             this.danhSáchSinhViênToolStripMenuItem.Text = "Danh sách sinh viên";
             this.danhSáchSinhViênToolStripMenuItem.Click += new System.EventHandler(this.danhSáchSinhViênToolStripMenuItem_Click);
             // 
             // sửaĐiểmToolStripMenuItem
             // 
             this.sửaĐiểmToolStripMenuItem.Name = "sửaĐiểmToolStripMenuItem";
-            this.sửaĐiểmToolStripMenuItem.Size = new System.Drawing.Size(250, 28);
+            this.sửaĐiểmToolStripMenuItem.Size = new System.Drawing.Size(311, 38);
             this.sửaĐiểmToolStripMenuItem.Text = "Sửa điểm";
             this.sửaĐiểmToolStripMenuItem.Click += new System.EventHandler(this.sửaĐiểmToolStripMenuItem_Click);
             // 
             // thắcMắcSinhViênToolStripMenuItem
             // 
             this.thắcMắcSinhViênToolStripMenuItem.Name = "thắcMắcSinhViênToolStripMenuItem";
-            this.thắcMắcSinhViênToolStripMenuItem.Size = new System.Drawing.Size(250, 28);
+            this.thắcMắcSinhViênToolStripMenuItem.Size = new System.Drawing.Size(311, 38);
             this.thắcMắcSinhViênToolStripMenuItem.Text = "Thắc mắc sinh viên";
             this.thắcMắcSinhViênToolStripMenuItem.Click += new System.EventHandler(this.thắcMắcSinhViênToolStripMenuItem_Click);
             // 
             // thôngBáoToolStripMenuItem
             // 
             this.thôngBáoToolStripMenuItem.Name = "thôngBáoToolStripMenuItem";
-            this.thôngBáoToolStripMenuItem.Size = new System.Drawing.Size(250, 28);
+            this.thôngBáoToolStripMenuItem.Size = new System.Drawing.Size(311, 38);
             this.thôngBáoToolStripMenuItem.Text = "Thông báo ";
             this.thôngBáoToolStripMenuItem.Click += new System.EventHandler(this.thôngBáoToolStripMenuItem_Click);
             // 
@@ -206,21 +209,21 @@
             this.hệThốngToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hệThốngToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.hệThốngToolStripMenuItem.Name = "hệThốngToolStripMenuItem";
-            this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(99, 27);
+            this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(122, 34);
             this.hệThốngToolStripMenuItem.Text = "Hệ thống";
             this.hệThốngToolStripMenuItem.Click += new System.EventHandler(this.hệThốngToolStripMenuItem_Click);
             // 
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(251, 38);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
             // tắtỨngDụngToolStripMenuItem
             // 
             this.tắtỨngDụngToolStripMenuItem.Name = "tắtỨngDụngToolStripMenuItem";
-            this.tắtỨngDụngToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
+            this.tắtỨngDụngToolStripMenuItem.Size = new System.Drawing.Size(251, 38);
             this.tắtỨngDụngToolStripMenuItem.Text = "Tắt ứng dụng";
             this.tắtỨngDụngToolStripMenuItem.Click += new System.EventHandler(this.tắtỨngDụngToolStripMenuItem_Click);
             // 
@@ -229,7 +232,7 @@
             this.panelTop.BackColor = System.Drawing.Color.Navy;
             this.panelTop.Controls.Add(this.labelTrangChu);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(0, 29);
+            this.panelTop.Location = new System.Drawing.Point(0, 36);
             this.panelTop.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(902, 43);
@@ -243,7 +246,7 @@
             this.labelTrangChu.Location = new System.Drawing.Point(2, 10);
             this.labelTrangChu.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTrangChu.Name = "labelTrangChu";
-            this.labelTrangChu.Size = new System.Drawing.Size(238, 32);
+            this.labelTrangChu.Size = new System.Drawing.Size(280, 40);
             this.labelTrangChu.TabIndex = 0;
             this.labelTrangChu.Text = "Trang chủ giảng viên";
             // 
@@ -261,10 +264,10 @@
             this.panelBody.Controls.Add(this.hoTenTextBox);
             this.panelBody.Controls.Add(hoTenLabel);
             this.panelBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBody.Location = new System.Drawing.Point(0, 72);
+            this.panelBody.Location = new System.Drawing.Point(0, 79);
             this.panelBody.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panelBody.Name = "panelBody";
-            this.panelBody.Size = new System.Drawing.Size(902, 387);
+            this.panelBody.Size = new System.Drawing.Size(902, 380);
             this.panelBody.TabIndex = 2;
             this.panelBody.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBody_Paint);
             // 
@@ -276,7 +279,7 @@
             this.label1.Location = new System.Drawing.Point(709, 370);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(234, 20);
+            this.label1.Size = new System.Drawing.Size(281, 25);
             this.label1.TabIndex = 18;
             this.label1.Text = "Giảng viên - Truyền lửa tri thức";
             // 
@@ -301,7 +304,7 @@
             this.maGVTextBox.Location = new System.Drawing.Point(176, 25);
             this.maGVTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.maGVTextBox.Name = "maGVTextBox";
-            this.maGVTextBox.Size = new System.Drawing.Size(185, 29);
+            this.maGVTextBox.Size = new System.Drawing.Size(185, 33);
             this.maGVTextBox.TabIndex = 1;
             this.maGVTextBox.TextChanged += new System.EventHandler(this.maGVTextBox_TextChanged);
             // 
@@ -324,7 +327,7 @@
             this.emailTextBox1.Location = new System.Drawing.Point(465, 59);
             this.emailTextBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.emailTextBox1.Name = "emailTextBox1";
-            this.emailTextBox1.Size = new System.Drawing.Size(185, 29);
+            this.emailTextBox1.Size = new System.Drawing.Size(185, 33);
             this.emailTextBox1.TabIndex = 14;
             this.emailTextBox1.TextChanged += new System.EventHandler(this.emailTextBox1_TextChanged);
             // 
@@ -337,7 +340,7 @@
             this.dienThoaiTextBox.Location = new System.Drawing.Point(465, 25);
             this.dienThoaiTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dienThoaiTextBox.Name = "dienThoaiTextBox";
-            this.dienThoaiTextBox.Size = new System.Drawing.Size(185, 29);
+            this.dienThoaiTextBox.Size = new System.Drawing.Size(185, 33);
             this.dienThoaiTextBox.TabIndex = 13;
             // 
             // hoTenTextBox
@@ -349,7 +352,7 @@
             this.hoTenTextBox.Location = new System.Drawing.Point(176, 58);
             this.hoTenTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.hoTenTextBox.Name = "hoTenTextBox";
-            this.hoTenTextBox.Size = new System.Drawing.Size(185, 29);
+            this.hoTenTextBox.Size = new System.Drawing.Size(185, 33);
             this.hoTenTextBox.TabIndex = 7;
             // 
             // giangVienTableAdapter
@@ -367,9 +370,16 @@
             this.tableAdapterManager.SinhVienTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = DoAnCuoiKi242.QuanLiSinhVien1_DoAnCuoiKi242DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // mônHọcToolStripMenuItem
+            // 
+            this.mônHọcToolStripMenuItem.Name = "mônHọcToolStripMenuItem";
+            this.mônHọcToolStripMenuItem.Size = new System.Drawing.Size(311, 38);
+            this.mônHọcToolStripMenuItem.Text = "Môn Học";
+            this.mônHọcToolStripMenuItem.Click += new System.EventHandler(this.mônHọcToolStripMenuItem_Click);
+            // 
             // frmMainGiangVien
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(902, 459);
             this.Controls.Add(this.panelBody);
@@ -423,5 +433,6 @@
         private System.Windows.Forms.ToolStripMenuItem thôngBáoToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem mônHọcToolStripMenuItem;
     }
 }

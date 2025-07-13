@@ -114,7 +114,7 @@ namespace DoAnCuoiKi242
             // Cột hiển thị giới tính
             if (dataGridView1.Columns.Contains("GioiTinhHienThi"))
             {
-                dataGridView1.Columns["GioiTinhHienThi"].HeaderText = "Giới tính (x = Nữ)";
+                dataGridView1.Columns["GioiTinhHienThi"].HeaderText = "Giới tính";
                 dataGridView1.Columns["GioiTinhHienThi"].DisplayIndex = dataGridView1.Columns["NgaySinh"].DisplayIndex + 1;
             }
 
@@ -175,6 +175,11 @@ namespace DoAnCuoiKi242
                     MessageBox.Show("Xóa thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

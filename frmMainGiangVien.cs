@@ -215,5 +215,20 @@ namespace DoAnCuoiKi242
                 MessageBox.Show("Không tìm thấy thông báo.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void mônHọcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GiangVien gvInfo = DatabaseHelper.GetGiangVienByUsername(currentUsername);
+            if (gvInfo != null)
+            {
+                // Truyền MaGV (string) thay vì đối tượng GiangVien
+                OpenChildForm(new ThemMon(gvInfo));
+                labelTrangChu.Text = "Thông báo";
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy thông báo.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
