@@ -47,10 +47,9 @@
             // 
             maGVLabel.AutoSize = true;
             maGVLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            maGVLabel.Location = new System.Drawing.Point(56, 5);
-            maGVLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            maGVLabel.Location = new System.Drawing.Point(84, 8);
             maGVLabel.Name = "maGVLabel";
-            maGVLabel.Size = new System.Drawing.Size(118, 21);
+            maGVLabel.Size = new System.Drawing.Size(175, 32);
             maGVLabel.TabIndex = 3;
             maGVLabel.Text = "Danh sách lớp";
             maGVLabel.Click += new System.EventHandler(this.maGVLabel_Click);
@@ -58,13 +57,13 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(31, 28);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1.Location = new System.Drawing.Point(46, 43);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(845, 192);
+            this.dataGridView1.Size = new System.Drawing.Size(1268, 295);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // quanLiSinhVien1_DoAnCuoiKi242DataSet
             // 
@@ -96,18 +95,20 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(733, 372);
+            this.label1.Location = new System.Drawing.Point(1100, 572);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 17);
+            this.label1.Size = new System.Drawing.Size(261, 28);
             this.label1.TabIndex = 49;
             this.label1.Text = "Đạo đức - Ý chí - Sáng tạo";
             // 
             // bttnXoa
             // 
             this.bttnXoa.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttnXoa.Location = new System.Drawing.Point(60, 253);
+            this.bttnXoa.Location = new System.Drawing.Point(90, 389);
+            this.bttnXoa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bttnXoa.Name = "bttnXoa";
-            this.bttnXoa.Size = new System.Drawing.Size(82, 28);
+            this.bttnXoa.Size = new System.Drawing.Size(123, 43);
             this.bttnXoa.TabIndex = 51;
             this.bttnXoa.Text = "Xóa";
             this.bttnXoa.UseVisualStyleBackColor = true;
@@ -115,14 +116,13 @@
             // 
             // DSSVoGiangVien
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 459);
+            this.ClientSize = new System.Drawing.Size(1353, 706);
             this.Controls.Add(this.bttnXoa);
             this.Controls.Add(this.label1);
             this.Controls.Add(maGVLabel);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DSSVoGiangVien";
             this.Text = "DSSVoGiangVien";
             this.Load += new System.EventHandler(this.DSSVoGiangVien_Load);

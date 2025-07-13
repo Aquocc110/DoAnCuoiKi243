@@ -9,7 +9,7 @@ namespace QuanLiSinhVien
 
     public class DatabaseHelper
     {
-        public static string chuoiKetNoi = "1Data Source=DESKTOP-V5GILFN\\SQLEXPRESS;Initial Catalog=QuanLiSinhVienFinall_DoAnCuoiKi242;Integrated Security=True;TrustServerCertificate=True";
+        public static string chuoiKetNoi = "Data Source=localhost\\SQLEXPRESS01;Initial Catalog=DoAnLapTrinh1_243;Integrated Security=True;TrustServerCertificate=True";
         public SqlConnection TaoKetNoi()
         {
             return new SqlConnection(chuoiKetNoi);
@@ -127,7 +127,7 @@ namespace QuanLiSinhVien
         public static DataTable GetKetQuaHocTap(string maSV)
         {
             DataTable dt = new DataTable();
-            string query = "SELECT MaMH, TenMH, Diem, DiemChu FROM KetQua WHERE MaSV = @maSV";
+            string query = "SELECT MaMH, TenMH, Diem, DiemChu FROM KetQua WHERE MaSV = @maSV";  
 
             using (SqlConnection conn = new SqlConnection(chuoiKetNoi))
             {
@@ -497,6 +497,26 @@ namespace QuanLiSinhVien
                 }
             }
         }
-        
+        public static DataTable LayTatCaMonHoc()
+        {
+            DataTable dt = new DataTable();
+            string query = @"
+        SELECT MaMH, TenMH, GiaTinChi, SoTinChi
+        FROM MonHoc
+        ORDER BY TenMH";  
+
+            using (SqlConnection conn = new SqlConnection(chuoiKetNoi))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                }
+            }
+            return dt;
+        }
+
+
     }
 }
