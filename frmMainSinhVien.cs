@@ -8,7 +8,7 @@ namespace DoAnCuoiKi242
 {
     public partial class frmMainSinhVien : Form
     {
-        private string currentUsername;
+        private string currentMaSV;
         private SinhVien sinhVien;
         public static frmMainSinhVien Instance { get; private set; }
         public frmMainSinhVien(SinhVien sv)
@@ -18,7 +18,7 @@ namespace DoAnCuoiKi242
             Instance = this;
         }
         private Form ChildForm;
-        public  void openChildForm1(Form childForm)
+        public void openChildForm1(Form childForm)
         {
             if (ChildForm != null)
             {
@@ -64,7 +64,7 @@ namespace DoAnCuoiKi242
 
             if (sinhVien != null)
             {
-                currentUsername = sinhVien.TenDangNhap;
+                currentMaSV = sinhVien.MaSV;
                 txtHoTen.Text = sinhVien.HoTen;
                 txtMaSV.Text = sinhVien.MaSV;
                 txtMaKhoa.Text = sinhVien.MaKhoa;
@@ -86,17 +86,17 @@ namespace DoAnCuoiKi242
                 this.Close();
             }
         }
-            
+
 
         private void xemĐiểmToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
 
             if (sinhVien != null && !string.IsNullOrEmpty(sinhVien.MaSV))
             {
                 try
-                        
-                   
+
+
                 {
                     if (label1.Text == "Điểm sinh viên")
                     {
@@ -121,20 +121,20 @@ namespace DoAnCuoiKi242
         {
             if (this.Enabled)
             {
-                DialogResult thoat = MessageBox.Show("Bạn có chắc muốn thoát không","Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (thoat == DialogResult.Yes) 
-                
+                DialogResult thoat = MessageBox.Show("Bạn có chắc muốn thoát không", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (thoat == DialogResult.Yes)
+
                 {
                     Application.Exit();
                 }
             }
 
-            
+
         }
 
         private void label8_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -154,7 +154,7 @@ namespace DoAnCuoiKi242
 
         private void thôngTinSinhViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void menuStripfrmMainSinhVien_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -172,7 +172,7 @@ namespace DoAnCuoiKi242
             if (label1.Text == "Trang chủ sinh viên")
             {
                 MessageBox.Show("Bạn đang ở Trang chủ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return; 
+                return;
             }
 
             if (ChildForm != null)

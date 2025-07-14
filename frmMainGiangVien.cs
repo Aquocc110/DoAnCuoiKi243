@@ -59,7 +59,7 @@ namespace DoAnCuoiKi242
 
         private void xemHồSơToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GiangVien gvInfo = DatabaseHelper.GetGiangVienByUsername(currentUsername); // Lấy dữ liệu mới nhất
+            GiangVien gvInfo = DatabaseHelper.LayGiangVienBangMa(currentUsername); // Lấy dữ liệu mới nhất
             if (gvInfo != null)
             {
                 
@@ -74,7 +74,7 @@ namespace DoAnCuoiKi242
 
         private void chỉnhSửaThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GiangVien gvInfo = DatabaseHelper.GetGiangVienByUsername(currentUsername);
+            GiangVien gvInfo = DatabaseHelper.LayGiangVienBangMa(currentUsername);
             if (gvInfo != null)
             {
                 ThongTinGiangVien thongTinGV = new ThongTinGiangVien(gvInfo); // Xem hồ sơ trước
@@ -95,7 +95,7 @@ namespace DoAnCuoiKi242
 
         private void danhSáchSinhViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GiangVien DSSV = DatabaseHelper.GetGiangVienByUsername(currentUsername);
+            GiangVien DSSV = DatabaseHelper.LayGiangVienBangMa(currentUsername);
             if (DSSV != null)
             {
                 DSSVoGiangVien thongTinGV = new DSSVoGiangVien(DSSV); // Xem hồ sơ trước
@@ -111,7 +111,7 @@ namespace DoAnCuoiKi242
 
         private void sửaĐiểmToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GiangVien gvInfo = DatabaseHelper.GetGiangVienByUsername(currentUsername);
+            GiangVien gvInfo = DatabaseHelper.LayGiangVienBangMa(currentUsername);
             if (gvInfo != null)
             {
                 // Truyền MaGV (string) thay vì đối tượng GiangVien
@@ -161,7 +161,7 @@ namespace DoAnCuoiKi242
         }
         private void LoadThongTinGiangVien()
         {
-            GiangVien gvInfo = DatabaseHelper.GetGiangVienByUsername(currentUsername);
+            GiangVien gvInfo = DatabaseHelper.LayGiangVienBangMa(currentUsername);
             if (gvInfo != null)
             {
                 
@@ -188,7 +188,7 @@ namespace DoAnCuoiKi242
 
         private void thắcMắcSinhViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GiangVien gvInfo = DatabaseHelper.GetGiangVienByUsername(currentUsername);
+            GiangVien gvInfo = DatabaseHelper.LayGiangVienBangMa(currentUsername);
             if (gvInfo != null)
             {
                 // Truyền MaGV (string) thay vì đối tượng GiangVien
@@ -203,7 +203,7 @@ namespace DoAnCuoiKi242
 
         private void thôngBáoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GiangVien gvInfo = DatabaseHelper.GetGiangVienByUsername(currentUsername);
+            GiangVien gvInfo = DatabaseHelper.LayGiangVienBangMa(currentUsername);
             if (gvInfo != null)
             {
                 // Truyền MaGV (string) thay vì đối tượng GiangVien
@@ -218,7 +218,7 @@ namespace DoAnCuoiKi242
 
         private void mônHọcToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GiangVien gvInfo = DatabaseHelper.GetGiangVienByUsername(currentUsername);
+            GiangVien gvInfo = DatabaseHelper.LayGiangVienBangMa(currentUsername);
             if (gvInfo != null)
             {
                 // Truyền MaGV (string) thay vì đối tượng GiangVien

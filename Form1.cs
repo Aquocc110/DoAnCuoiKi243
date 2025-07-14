@@ -21,9 +21,7 @@ namespace DoAnCuoiKi242
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmDNGV open = new frmDNGV();
-            this.Hide();
-            open.Show();
+          
             
 
         }

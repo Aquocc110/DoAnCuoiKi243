@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btnGV = new System.Windows.Forms.Button();
             this.btnSV = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,29 +41,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnGV
-            // 
-            this.btnGV.BackColor = System.Drawing.SystemColors.Menu;
-            this.btnGV.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGV.Location = new System.Drawing.Point(66, 434);
-            this.btnGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnGV.Name = "btnGV";
-            this.btnGV.Size = new System.Drawing.Size(226, 92);
-            this.btnGV.TabIndex = 0;
-            this.btnGV.Text = "Giảng Viên";
-            this.btnGV.UseVisualStyleBackColor = false;
-            this.btnGV.Click += new System.EventHandler(this.button1_Click);
-            // 
             // btnSV
             // 
             this.btnSV.BackColor = System.Drawing.SystemColors.Menu;
             this.btnSV.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSV.Location = new System.Drawing.Point(309, 434);
+            this.btnSV.Location = new System.Drawing.Point(193, 432);
             this.btnSV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSV.Name = "btnSV";
             this.btnSV.Size = new System.Drawing.Size(226, 92);
             this.btnSV.TabIndex = 1;
-            this.btnSV.Text = "Sinh Viên";
+            this.btnSV.Text = "Đăng nhập";
             this.btnSV.UseVisualStyleBackColor = false;
             this.btnSV.Click += new System.EventHandler(this.btnSV_Click);
             // 
@@ -78,7 +64,6 @@
             this.hệThốngToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.menuStrip1.Size = new System.Drawing.Size(597, 33);
             this.menuStrip1.TabIndex = 7;
@@ -98,7 +83,7 @@
             // tắtỨngDụngToolStripMenuItem
             // 
             this.tắtỨngDụngToolStripMenuItem.Name = "tắtỨngDụngToolStripMenuItem";
-            this.tắtỨngDụngToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.tắtỨngDụngToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
             this.tắtỨngDụngToolStripMenuItem.Text = "Tắt ứng dụng";
             this.tắtỨngDụngToolStripMenuItem.Click += new System.EventHandler(this.tắtỨngDụngToolStripMenuItem_Click);
             // 
@@ -138,7 +123,6 @@
             this.ClientSize = new System.Drawing.Size(597, 565);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnSV);
-            this.Controls.Add(this.btnGV);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pictureBox1);
             this.MainMenuStrip = this.menuStrip1;
@@ -157,8 +141,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnGV;
         private System.Windows.Forms.Button btnSV;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem hệThốngToolStripMenuItem;

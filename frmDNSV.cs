@@ -32,21 +32,28 @@ namespace DoAnCuoiKi242
             string username = txtTaiKhoanSV.Text;
             string password = txtMatKhauSV.Text;
 
-            if (dbHelper.DangNhap(username, password, out string vaiTro, out string fullName))
+            if (dbHelper.DangNhap(username, password, out string vaiTro, out string hoTen))
             {
-                MessageBox.Show($"Đăng nhập thành công! Chào mừng: {fullName}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                CurrentUsername = username; 
-
+                MessageBox.Show($"Đăng nhập thành công! Chào mừng: {hoTen}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
-                SinhVien sinhVien = DatabaseHelper.LaySinhVienBangTenDangNhap(CurrentUsername);
-                frmMainSinhVien mainForm = new frmMainSinhVien(sinhVien);
-                mainForm.Show();
+
+                if (vaiTro == "SinhVien")
+                {
+                    var sinhVien = DatabaseHelper.LaySinhVienBangMa(username); // truyền MaLienKet
+                    frmMainSinhVien frm = new frmMainSinhVien(sinhVien);
+                    frm.Show();
+                }
+                else if (vaiTro == "GiangVien")
+                {
+                    frmMainGiangVien frm = new frmMainGiangVien(username); // truyền MaLienKet
+                    frm.Show();
+                }
             }
             else
             {
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void tắtỨngDụngToolStripMenuItem_Click(object sender, EventArgs e)

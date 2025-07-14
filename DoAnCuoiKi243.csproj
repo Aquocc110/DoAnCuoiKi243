@@ -91,12 +91,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDNGV.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDNGV.Designer.cs">
-      <DependentUpon>frmDNGV.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmDNSV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,9 +196,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDNGV.resx">
-      <DependentUpon>frmDNGV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDNSV.resx">
       <DependentUpon>frmDNSV.cs</DependentUpon>

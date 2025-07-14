@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace QuanLiSinhVien
@@ -9,7 +10,7 @@ namespace QuanLiSinhVien
 
     public class DatabaseHelper
     {
-        public static string chuoiKetNoi = "Data Source=localhost\\SQLEXPRESS01;Initial Catalog=DoAnLapTrinh1_243;Integrated Security=True;TrustServerCertificate=True";
+        public static string chuoiKetNoi = "Data Source=localhost\\SQLEXPRESS01;Initial Catalog = DoAnLapTrinh1_2431; Integrated Security = True; TrustServerCertificate=True";
         public SqlConnection TaoKetNoi()
         {
             return new SqlConnection(chuoiKetNoi);
@@ -19,8 +20,6 @@ namespace QuanLiSinhVien
         public class SinhVien
         {
             public string MaSV { get; set; }
-            public string TenDangNhap { get; set; }
-            public string MatKhau { get; set; }
             public string HoTen { get; set; }
             public DateTime NgaySinh { get; set; }
             public bool GioiTinh { get; set; }
@@ -175,27 +174,39 @@ namespace QuanLiSinhVien
             }
             return lichHoc;
         }
+
         public bool DangNhap(string tenDangNhap, string matKhau, out string vaiTro, out string hoTenDayDu)
         {
             vaiTro = null;
             hoTenDayDu = null;
-            using (SqlConnection ketNoi = new SqlConnection(chuoiKetNoi))
+
+            using (SqlConnection conn = new SqlConnection(chuoiKetNoi))
             {
-                ketNoi.Open();
-                string truyVan = "SELECT HoTen FROM SinhVien WHERE TenDangNhap = @tenDangNhap AND MatKhau = @matKhau";
+                conn.Open();
 
-                using (SqlCommand lenh = new SqlCommand(truyVan, ketNoi))
+                string query = "SELECT VaiTro, MaLienKet FROM DangNhap WHERE TenDangNhap = @username AND MatKhau = @password";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    lenh.Parameters.AddWithValue("@tenDangNhap", tenDangNhap);
-                    lenh.Parameters.AddWithValue("@matKhau", matKhau);
+                    cmd.Parameters.AddWithValue("@username", tenDangNhap);
+                    cmd.Parameters.AddWithValue("@password", matKhau);
 
-                    using (SqlDataReader docDuLieu = lenh.ExecuteReader())
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        if (docDuLieu.HasRows)
+                        if (reader.Read())
                         {
-                            docDuLieu.Read();
-                            hoTenDayDu = docDuLieu["HoTen"].ToString();
-                            vaiTro = "SinhVien"; // Gán vai trò
+                            vaiTro = reader["VaiTro"].ToString();
+                            string maLienKet = reader["MaLienKet"].ToString();
+
+                            if (vaiTro == "SinhVien")
+                            {
+                                hoTenDayDu = LayHoTenSinhVien(maLienKet);
+                            }
+                            else if (vaiTro == "GiangVien")
+                            {
+                                hoTenDayDu = LayHoTenGiangVien(maLienKet);
+                            }
+
                             return true;
                         }
                     }
@@ -203,23 +214,48 @@ namespace QuanLiSinhVien
             }
             return false;
         }
-        public static SinhVien LaySinhVienBangTenDangNhap(string tenDangNhap)
+
+        private string LayHoTenSinhVien(string maSV)
         {
-            if (string.IsNullOrEmpty(tenDangNhap))
+            using (SqlConnection conn = new SqlConnection(chuoiKetNoi))
             {
-                MessageBox.Show("Tên đăng nhập không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
+                conn.Open();
+                string query = "SELECT HoTen FROM SinhVien WHERE MaSV = @maSV";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@maSV", maSV);
+                    object result = cmd.ExecuteScalar();
+                    return result?.ToString();
+                }
             }
+        }
+
+        private string LayHoTenGiangVien(string maGV)
+        {
+            using (SqlConnection conn = new SqlConnection(chuoiKetNoi))
+            {
+                conn.Open();
+                string query = "SELECT HoTen FROM GiangVien WHERE MaGV = @maGV";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@maGV", maGV);
+                    object result = cmd.ExecuteScalar();
+                    return result?.ToString();
+                }
+            }
+        }
+
+        public static SinhVien LaySinhVienBangMa(string maSV)
+        {
             SinhVien sinhVien = null;
-            string truyVan = "SELECT * FROM SinhVien WHERE TenDangNhap = @tenDangNhap";
+            string truyVan = "SELECT * FROM SinhVien WHERE MaSV = @maSV";
 
             using (SqlConnection ketNoi = new SqlConnection(chuoiKetNoi))
             {
                 ketNoi.Open();
                 using (SqlCommand lenh = new SqlCommand(truyVan, ketNoi))
                 {
-
-                    lenh.Parameters.AddWithValue("@tenDangNhap", tenDangNhap.Trim());
+                    lenh.Parameters.AddWithValue("@maSV", maSV);
 
                     using (SqlDataReader docDuLieu = lenh.ExecuteReader())
                     {
@@ -228,15 +264,14 @@ namespace QuanLiSinhVien
                             sinhVien = new SinhVien
                             {
                                 MaSV = docDuLieu["MaSV"].ToString(),
-                                TenDangNhap = docDuLieu["TenDangNhap"].ToString(),
                                 HoTen = docDuLieu["HoTen"].ToString(),
-                                NgaySinh = docDuLieu["NgaySinh"] != DBNull.Value ? Convert.ToDateTime(docDuLieu["NgaySinh"]) : DateTime.MinValue,
-                                GioiTinh = docDuLieu["GioiTinh"] != DBNull.Value && Convert.ToBoolean(docDuLieu["GioiTinh"]),
+                                NgaySinh = Convert.ToDateTime(docDuLieu["NgaySinh"]),
+                                GioiTinh = Convert.ToBoolean(docDuLieu["GioiTinh"]),
                                 DiaChi = docDuLieu["DiaChi"].ToString(),
                                 DienThoai = docDuLieu["DienThoai"].ToString(),
+                                Email = docDuLieu["Email"].ToString(),
                                 MaKhoa = docDuLieu["MaKhoa"].ToString(),
                                 DanToc = docDuLieu["DanToc"].ToString(),
-                                Email = docDuLieu["Email"].ToString(),
                                 TonGiao = docDuLieu["TonGiao"].ToString()
                             };
                         }
@@ -246,39 +281,49 @@ namespace QuanLiSinhVien
             return sinhVien;
         }
 
-        // GIẢNG VIÊNNNN--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        public bool Login(string username, string password, out string role, out string hoTenDayDu)
+        public static GiangVien LayGiangVienBangMa(string maGV)
         {
-            role = null;
-            hoTenDayDu = null;
+            GiangVien giangVien = null;
+            string query = "SELECT * FROM GiangVien WHERE MaGV = @maGV";
+
             using (SqlConnection conn = new SqlConnection(chuoiKetNoi))
             {
                 conn.Open();
-                string query = "SELECT HoTen FROM GiangVien WHERE TenDangNhap = @username AND MatKhau = @password ";
-
-
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@username", username);
-                    cmd.Parameters.AddWithValue("@password", password);
+                    cmd.Parameters.AddWithValue("@maGV", maGV);
 
-                    
                     using (SqlDataReader reader = cmd.ExecuteReader())
-                    if (reader.HasRows)
                     {
-                            reader.Read();
-                            hoTenDayDu = reader["HoTen"].ToString();
-                            role = "GiangVien"; 
-                            return true;
+                        if (reader.Read())
+                        {
+                            giangVien = new GiangVien
+                            {
+                                MaGV = reader["MaGV"].ToString(),
+                                HoTen = reader["HoTen"].ToString(),
+                                NgaySinh = reader["NgaySinh"] != DBNull.Value ? Convert.ToDateTime(reader["NgaySinh"]) : DateTime.MinValue,
+                                GioiTinh = reader["GioiTinh"] != DBNull.Value && Convert.ToBoolean(reader["GioiTinh"]),
+                                DienThoai = reader["DienThoai"].ToString(),
+                                Email = reader["Email"].ToString(),
+                                DanToc = reader["DanToc"].ToString(),
+                                TonGiao = reader["TonGiao"].ToString(),
+                                Picture = reader["Picture"].ToString(),
+                                MaMH = reader["MaMH"].ToString()
+                            };
                         }
+                    }
                 }
             }
-            return false;
+
+            return giangVien;
         }
+
+
+        // GIẢNG VIÊNNNN--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
         public class GiangVien
         {
             public string MaGV { get; set; }
-            public string TenDangNhap { get; set; }
             public string HoTen { get; set; }
             public DateTime NgaySinh { get; set; }
             public bool GioiTinh { get; set; }
@@ -292,43 +337,7 @@ namespace QuanLiSinhVien
 
         }
         //TEST GIANGVIEN ĐỂ TRONG TRƯỚC    
-        public static GiangVien GetGiangVienByUsername(string username)
-        {
-            GiangVien gv = null;
-            string query = "SELECT * FROM GiangVien WHERE TenDangNhap = @username";
-
-            using (SqlConnection conn = new SqlConnection(chuoiKetNoi))
-            {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@username", username);
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            gv = new GiangVien
-                            {
-                                MaGV = reader["MaGV"].ToString(),
-                                TenDangNhap = reader["TenDangNhap"].ToString(),
-                                HoTen = reader["HoTen"].ToString(),
-                                NgaySinh = Convert.ToDateTime(reader["NgaySinh"]),
-                                GioiTinh = Convert.ToBoolean(reader["GioiTinh"]),
-                                DienThoai = reader["DienThoai"].ToString(),
-                                Email = reader["email"].ToString(),
-                                Picture = reader["Picture"].ToString(),
-                                TonGiao = reader["TonGiao"].ToString(),
-                                DanToc = reader["DanToc"].ToString(),
-                                MaMH = reader["MaMH"].ToString()
-
-                            };
-                        }
-                    }
-                }
-            }
-            return gv;
-
-        }
+  
 
         public static DataTable HienTTGV(string maGV)
         {
