@@ -76,7 +76,7 @@ namespace DoAnCuoiKi242
                 Console.WriteLine("Cập nhật thành công!");
 
                 // **Lấy dữ liệu mới từ database**
-                GiangVien gvMoi = DatabaseHelper.GetGiangVienByUsername(giangVien.MaGV);
+                GiangVien gvMoi = DatabaseHelper.LayGiangVienBangMa(giangVien.MaGV);
 
                 if (gvMoi != null)
                 {

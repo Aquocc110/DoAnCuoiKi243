@@ -14,7 +14,7 @@ namespace DoAnCuoiKi242
     public partial class ThongTinCaNhan : Form
     {
         private SinhVien sinhVien;
-        private string currentUsername;
+        private string currentMaSV;
         public static frmMainSinhVien Instance { get; private set; }
         public ThongTinCaNhan(SinhVien sv)
         {
@@ -26,7 +26,7 @@ namespace DoAnCuoiKi242
         {
             if (sinhVien != null)
             {
-                currentUsername = sinhVien.TenDangNhap;
+                currentMaSV = sinhVien.MaSV;
 
                 txtHoTen.Text = sinhVien.HoTen;
                 txtMaSV.Text = sinhVien.MaSV;
