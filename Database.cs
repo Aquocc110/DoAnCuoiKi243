@@ -133,7 +133,7 @@ namespace QuanLiSinhVien
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@maSV", maSV); // Quan trọng: Phải có dòng này
+                    cmd.Parameters.AddWithValue("@maSV", maSV); 
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     da.Fill(dt);
                 }
@@ -510,9 +510,9 @@ namespace QuanLiSinhVien
         {
             DataTable dt = new DataTable();
             string query = @"
-        SELECT MaMH, TenMH, GiaTinChi, SoTinChi
-        FROM MonHoc
-        ORDER BY TenMH";  
+              SELECT MaMH, TenMH, GiaTinChi, SoTinChi
+              FROM MonHoc
+              ORDER BY TenMH";  
 
             using (SqlConnection conn = new SqlConnection(chuoiKetNoi))
             {
